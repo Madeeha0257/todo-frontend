@@ -1,37 +1,45 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Daylight</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <main class="login-shell">
+        <section class="login-card">
+            <a class="brand" href="index.html">
+                <span class="brand-icon">✳</span>
+                daylight
+            </a>
 
-<h1>Login</h1>
+            <div class="empty-icon" style="margin-top: 35px;">✳</div>
+            <h1>A little space<br>for your day.</h1>
+            <p>Sign in to get back to your tasks and make room for what matters.</p>
 
-<button onclick="login()">Login with Cognito</button>
+            <button class="login-btn" onclick="login()">Continue with Cognito ↗</button>
+        </section>
+    </main>
 
-<script>
-function login() {
+    <script>
+    function login() {
+        const clientId = "5bqogeq3i3m01drodl18ipuhav";
+        const domain =
+            "https://ap-south-11rayxgfj3.auth.ap-south-1.amazoncognito.com";
 
-    const clientId = "5bqogeq3i3m01drodl18ipuhav";
+        const redirectUri = "http://localhost:8080/index.html";
 
-    const domain =
-        "https://ap-south-11rayxgfj3.auth.ap-south-1.amazoncognito.com";
+        const loginUrl =
+            domain +
+            "/login?client_id=" + clientId +
+            "&response_type=code" +
+            "&scope=email+openid" +
+            "&redirect_uri=" + encodeURIComponent(redirectUri);
 
-    const redirectUri =
-        "http://localhost:8080/index.html";
-
-    const loginUrl =
-        domain +
-        "/login?client_id=" + clientId +
-        "&response_type=code" +
-        "&scope=email+openid" +
-        "&redirect_uri=" + encodeURIComponent(redirectUri);
-
-    window.location.href = loginUrl;
-}
-</script>
-
+        window.location.href = loginUrl;
+    }
+    </script>
 </body>
 </html>

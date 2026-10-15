@@ -1,22 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>To-Do Application</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daylight | My Tasks</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <main class="app-shell">
+        <header class="topbar">
+            <a class="brand" href="index.html">
+                <span class="brand-icon">✳</span>
+                daylight
+            </a>
+            <button class="logout-btn" onclick="logout()">Log out ↗</button>
+        </header>
 
-<h1>To-Do List</h1>
+        <section class="welcome">
+            <p class="eyebrow">YOUR PERSONAL SPACE</p>
+            <h1>Make room for<br><span>what matters.</span></h1>
+            <p class="subtitle">A little progress is still progress. Let's get things done.</p>
+        </section>
 
-<input type="text" id="task" placeholder="Enter task">
-<button onclick="addTask()">Add Task</button>
+        <section class="task-panel">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR DAY, YOUR PACE</p>
+                    <h2>Today's tasks <span class="task-count" id="taskCount">0</span></h2>
+                </div>
+                <span class="today-label" id="todayLabel"></span>
+            </div>
 
-<ul id="taskList"></ul>
+            <form id="taskForm" class="task-form">
+                <span class="plus-icon">＋</span>
+                <input
+                    type="text"
+                    id="task"
+                    placeholder="What would you like to get done?"
+                    maxlength="250"
+                    autocomplete="off"
+                    required
+                >
+                <button type="submit" class="add-btn">Add task <span>↗</span></button>
+            </form>
 
-<button onclick="logout()">Logout</button>
+            <p class="message" id="message" role="status"></p>
 
-<script src="app.js"></script>
+            <div class="task-list-heading">
+                <span>YOUR LIST</span>
+                <span id="taskSummary">A fresh start, anytime.</span>
+            </div>
 
+            <ul id="taskList" class="task-list"></ul>
+
+            <div id="emptyState" class="empty-state" hidden>
+                <div class="empty-icon">✳</div>
+                <h3>Nothing on your list yet.</h3>
+                <p>Start small. Add one thing you'd like to accomplish today.</p>
+            </div>
+
+            <footer class="panel-footer">
+                <span class="footer-sparkle">✳</span>
+                <span>One thing at a time. You're doing fine.</span>
+            </footer>
+        </section>
+
+        <footer class="page-footer">MADE FOR YOUR EVERYDAY MOMENTS</footer>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
