@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Login</h1>
+
+<button onclick="login()">Login with Cognito</button>
+
+<script>
+function login() {
+
+    const clientId = "5bqogeq3i3m01drodl18ipuhav";
+
+    const domain =
+        "https://ap-south-11rayxgfj3.auth.ap-south-1.amazoncognito.com";
+
+    const redirectUri =
+        "http://localhost:8080/index.html";
+
+    const loginUrl =
+        domain +
+        "/login?client_id=" + clientId +
+        "&response_type=code" +
+        "&scope=email+openid" +
+        "&redirect_uri=" + encodeURIComponent(redirectUri);
+
+    window.location.href = loginUrl;
+}
+</script>
+
+</body>
+</html>
